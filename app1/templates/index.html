@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    {% extends 'links.html' %}
+</head>
+<body>
+
+{% block content %}
+
+<h1>Home Page</h1>
+
+{% for i in posts %}
+    <h2>{{i.title}}</h2>
+    <small>Author: {{i.author}}</small>
+    <p>{{i.body}}</p>
+    <hr>
+{% endfor %}
+
+{% endblock content %}
+
+<scrpit src="js/script.js"></scrpit>
+</body>
+</html>
