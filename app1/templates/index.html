@@ -1,25 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    {% extends 'links.html' %}
-</head>
-<body>
+{% extends 'base/base.html' %}
 
 {% block content %}
 
 <h1>Home Page</h1>
 
-{% for i in posts %}
-    <h2>{{i.title}}</h2>
-    <small>Author: {{i.author}}</small>
-    <p>{{i.body}}</p>
-    <hr>
-{% endfor %}
+{% if posts %}
+    {% for i in posts %}
+        <h2>{{i.title}}</h2>
+        <small>Author: {{i.author}} - {{i.date_posted}}</small>
+        <p>{{i.body}}</p>
+        <hr>
+    {% endfor %}
+{% else %}
+    <h3>No posts yet</h3>
+{% endif %}
+
+{% if temp %}
+    {% if temp|length > 4 %}
+    <p>Data more than 4 : {{temp}}</p>
+    {% else %}
+    <p>Data less than or equal 4 : {{temp}}</p>
+    {% endif %}
+{% endif %}
 
 {% endblock content %}
-
-<scrpit src="js/script.js"></scrpit>
-</body>
-</html>

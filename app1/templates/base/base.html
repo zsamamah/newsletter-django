@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Links</title>
+    {% if title %}
+        <title>Django - {{title}}</title>
+    {% else %}
+        <title>Django Project</title>
+    {% endif %}
 </head>
 <body>
 
-<a href="{% url 'home_page' %}">Home</a>
-<a href="{% url 'about_page' %}">About</a>
-<a href="{% url 'contact_page' %}">Contact</a>
-<a href="/admin">Admin</a>
+{% include 'base/nav.html' %}
 
 {% block content %}
 
