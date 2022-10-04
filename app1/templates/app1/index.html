@@ -1,4 +1,4 @@
-{% extends 'base/base.html' %}
+{% extends 'app1/base/base.html' %}
 
 {% block content %}
 
@@ -7,7 +7,7 @@
 {% if posts %}
     {% for i in posts %}
         <h2>{{i.title}}</h2>
-        <small>Author: {{i.author}} - {{i.date_posted}}</small>
+        <small>Author: {{i.author}} | {{i.date_posted|date:"j b Y @ g:i a"}}</small>
         <p>{{i.body}}</p>
         <hr>
     {% endfor %}

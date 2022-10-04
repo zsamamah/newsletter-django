@@ -1,0 +1,20 @@
+{% extends "user/base/base.html" %}
+{%block content%}
+
+{% if messages %}
+    {% for i in messages %}
+        <div><p>{{i}}</p></div>
+    {% endfor %}
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Join Today</legend>
+        {{form}}
+        <button type="submit">Sign Up</button>
+    </fieldset>
+</form>
+<a href="#">Already have an account?</a>
+
+{% endblock content %}
